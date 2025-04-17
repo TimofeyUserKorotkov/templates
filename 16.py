@@ -1,8 +1,5 @@
-from sys import setrecursionlimit
+from sys import *
 
-setrecursionlimit(100000)
-def f(n):
-	if n < 100: return n**2
-	if n % 2 == 0: return 0.5 * f(n - 1)
-	return 2 * f(n - 1)
-print(1000 * (f(16384) / f(7777)))
+setrecursionlimit(10**9)
+f = lambda n: 1 if n == 1 else n * f(n - 1)
+print((f(2024) // 4 + f(2023)) // f(2022))

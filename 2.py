@@ -1,7 +1,6 @@
+from itertools import *
+
 print('x y z w')
-for x in 0, 1:
-	for y in 0, 1:
-		for z in 0, 1:
-			for w in 0, 1:
-				f = not(w <= (x == y)) and (z <= x)
-				if f: print(x, y, z, w)
+for x, y, z, w in product(range(2), repeat=4):
+    if not (w <= (x == y)) and (z <= x):
+        print(x, y, z, w)

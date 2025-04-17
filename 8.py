@@ -1,10 +1,9 @@
 from itertools import *
 
-res = list()
-for k in range(1, 20):
-	cnt = 0
-	for x in product('01', repeat=20):
-		if x.count('0') == k:
-			cnt += 1
-	if len(str(cnt)) == 6: res += [[k, [cnt]]]
-print(max(res))
+k = 0
+
+for i in product('012121212', repeat=5):
+    n = ''.join(i)
+    if all(('01' not in n, '10' not in n, n[0] != '0', n.count('0') == 1)):
+        k += 1
+print(k)

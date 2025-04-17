@@ -1,0 +1,5 @@
+[((c := []) or (d1st := lambda c, p: ((p[0] - c[0])**2 + (p[1] - c[1])**2)**(1 / 2)) and (cs := lambda cl: min(((sum(d1st(i, j) for j in cl), i) for i in cl))[1]) and (xys := [tuple(map(float, i.replace(',', '.').split('\t'))) for i in open(f'27{AB}.txt')])) and [[c.append([xys.pop()]) or [c[-1].extend(e := [j for j in xys if d1st(i, j) < 1]) or [xys.remove(_) for _ in e] for i in c[-1]]] for __ in xys] and (m := [i for i in c if len(i) > 10]) and print(*map(int, [sum(cs(i)[0] for i in m) / len(m) * 10**5, sum(cs(i)[1] for i in m) / len(m) * 10**5])) for AB in 'AB']
+
+
+# d1st = lambda c, p: ((p[0] - c[0])**2 + (p[1] - c[1])**2)**(1 / 2); c = list()
+# print(*[len(i) for i in c], sep="\n")

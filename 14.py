@@ -1,7 +1,13 @@
-from string import *
+def f(n, s):
+    r = ""
+    while n > 0:
+        r = str(n % s) + r
+        n = n // s
+    return r
 
-for x in reversed((digits + ascii_uppercase)[:25]):
-	n = int(f'A4{x}7F2', 25) + int(f'N{x}G5{x}H', 25) + int(f'74{x}M26', 25)
-	if n % 24 == 0:
-		print(n // 24)
-		break
+
+for i in range(2031, 0, -1):
+    s = 3**100 - i
+    if f(s, 3).count('0') == 1:
+        print(i)
+        break
